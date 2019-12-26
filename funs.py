@@ -74,7 +74,7 @@ def will_work(X, Y, Y_with_noise, size, N, lambda_l, ):
     table_footer = ['h', 'alpha', 'w', 'd', 'J']
     table = pd.DataFrame(data=table, columns=table_footer)
 
-    dist = np.round(np.abs(table['w'].values) + np.abs(table['d'].values), 4)
+    dist = np.round(np.abs(table['w'].values) + np.abs(table['d'].values), 6)
     table['dis'] = dist
     min_index = np.argmin(dist)
 
@@ -129,8 +129,8 @@ def main_search(Y_with_noise, size, N, lambda_i):
     # Ищем индекс минального функционала.
     index = np.argmin(functional)
 
-    res = [np.round(weights[index], 4), np.round(level_of_noise[index], 4),
-           np.round(level_of_distinction[index], 4), np.round(functional[index], 4)]
+    res = [np.round(weights[index], 6), np.round(level_of_noise[index], 6),
+           np.round(level_of_distinction[index], 6), np.round(functional[index], 6)]
     return res
 
 
